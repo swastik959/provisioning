@@ -16,7 +16,7 @@ annotations:
   catalog.cattle.io/permits-os: linux,windows
   catalog.cattle.io/os: linux
   catalog.cattle.io/provides-gvr: apps.deployment/v1
-  catalog.cattle.io/rancher-version: '>= 2.9.0-0 < 2.11.0-0'
+  catalog.cattle.io/rancher-version: '>= 2.10.0-0 < 2.11.0-0'
 maintainers:
   - email: chris.kim@suse.com
     name: Chris Kim
