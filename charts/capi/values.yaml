@@ -1,6 +1,6 @@
 image:
   repository: rancher/mirrored-cluster-api-controller
-  tag: v1.7.3
+  tag: v1.8.3
   imagePullPolicy: IfNotPresent
 
 global:
