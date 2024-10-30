@@ -22,6 +22,22 @@ spec:
       restartPolicy: Never
       nodeSelector: {{ include "linux-node-selector" . | nindent 8 }}
       tolerations: {{ include "linux-node-tolerations" . | nindent 8 }}
+{{- if .Values.tolerations }}
+{{ toYaml .Values.tolerations | indent 8 }}
+{{- else }}
+        - effect: NoSchedule
+          key: node-role.kubernetes.io/controlplane
+          value: "true"
+        - effect: NoSchedule
+          key: "node-role.kubernetes.io/control-plane"
+          operator: "Exists"
+        - effect: NoSchedule
+          key: "node-role.kubernetes.io/master"
+          operator: "Exists"
+        - effect: "NoExecute"
+          key: "node-role.kubernetes.io/etcd"
+          operator: "Exists"
+{{- end }}
       containers:
         - name: patch-sa-{{ .Release.Namespace }}
           image: {{ template "system_default_registry" $ }}{{ $.Values.global.kubectl.repository }}:{{ $.Values.global.kubectl.tag }}
