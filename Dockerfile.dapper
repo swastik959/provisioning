@@ -1,9 +1,9 @@
-FROM registry.suse.com/bci/golang:1.22
+FROM registry.suse.com/bci/golang:1.23
 
 ARG DAPPER_HOST_ARCH
 ENV ARCH $DAPPER_HOST_ARCH
 
-ENV YQ_VERSION v4.34.2
+ENV YQ_VERSION v4.45.1
 
 RUN zypper -n install git docker vim less file curl wget
 RUN wget https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}.tar.gz -O - | tar xz && mv yq_linux_${ARCH} /usr/bin/yq
