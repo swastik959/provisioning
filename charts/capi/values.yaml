@@ -1,6 +1,6 @@
 image:
   repository: rancher/mirrored-cluster-api-controller
-  tag: v1.8.3
+  tag: v1.9.4
   imagePullPolicy: IfNotPresent
 
 global:
@@ -8,7 +8,7 @@ global:
     systemDefaultRegistry: ""
   kubectl:
     repository: rancher/kubectl
-    tag: v1.29.2
+    tag: v1.32.1
     pullPolicy: IfNotPresent
 
 # tolerations for the capi-controller-manager deployment. See https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/ for more info
@@ -21,5 +21,5 @@ priorityClassName: ""
 
 extraEnv: []
 args:
-  - "--metrics-bind-addr=localhost:8080"
+  - "--diagnostics-address=localhost:8443"
   - "--feature-gates=MachinePool=false,ClusterResourceSet=false,ClusterTopology=false,RuntimeSDK=false"
